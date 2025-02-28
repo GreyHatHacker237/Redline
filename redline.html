@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedLine</title>
-
+    <header>
     
 </style>
 <nav class="navbar">
@@ -21,7 +21,7 @@
             text-decoration: none;
         }
         .navbar{
-            background: crimson; font-family: Arial, Helvetica, sans-serif; padding-right: 15px;padding-left: 15px;
+            background:black; font-family: Arial, Helvetica, sans-serif; padding-right: 15px;padding-left: 15px;
         }
         .navdiv{
             display: flex; align-items: center; justify-content: space-between;
@@ -38,11 +38,12 @@
         
         }
         button{
-            background-color: black; margin-left: 10px;border-radius: 10px; padding: 10px; width: 90px;
+            background-color: white; margin-left: 10px;border-radius: 10px; padding: 10px; width: 90px;
         }
         
     </style>
 
+</head>
     <script>
         window.onload = function() {
             var age = prompt("Veuillez entrer votre âge :");
@@ -62,9 +63,6 @@
         };
     </script>
     
-
-  
-</head>
 <body>
     <div class="cookie-banner" id="cookieBanner">
         Ce site utilise des cookies pour améliorer votre expérience. 
@@ -117,14 +115,54 @@
             opacity: 1;
         }
      </style>
+     <style>
+        body {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh;
+            margin: 0; 
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+    <div class="container">
+        <div class="title"Créer un compte</div>
+   <form action="#">
+    <div class="user-details">
+    <div class="input-box">
+        <span class="details">Nom</span>
+<input type="text" placeholder="Entrez votre nom" required>
+</div>
+<div class="input-box">
+    <span class="details">Email</span>
+<input type="text" placeholder="Entrez votre email" required>
+    </div>
+    <div class="input-box">
+        <span class="details">Password</span>
+<input type="text" placeholder="Entrez un mot de passe" required>
+</div>
+<div class="input-box">
+    <span class="details">Confirm password</span>
+<input type="text" placeholder="Entrez le mot de passe" required>
+</div>
+<div class="input-box">
+    <span class="details">Conditions Générales d'Utilisation</span>
+    </div>
+<ul>
+    <button><a href="#">Select</a></button>
+    <button><a href="#">Register</a></button>
+</ul>
+
+   </form>
+
    
    
         
     </div>
 </nav>
-    <header>
-        
-    </header>
+   
     
 </body>
 </html>
