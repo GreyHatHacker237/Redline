@@ -1,81 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedLine</title>
 
-    <script>
-        window.onload = function() {
-            // Demander à l'utilisateur son âge
-            var age = prompt("Veuillez entrer votre âge :");
-
-            // Vérifier si l'entrée est un nombre
-            if (age !== null && !isNaN(age)) {
-                age = parseInt(age); // Convertir en nombre entier
-
-                // Vérifier si l'utilisateur a 18 ans ou plus
-                if (age < 18) {
-                    // Rediriger vers IMDB
-                    window.location.href = "https://www.imdb.com";
-                } else {
-                    alert("Bienvenue sur notre site !");
-                }
-            } else {
-                alert("Veuillez entrer un âge valide.");
-                window.location.href = "https://www.imdb.com"; // Rediriger si l'entrée n'est pas valide
-            }
-        };
-    </script>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .cookie-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            display: none; /* Masqué par défaut */
-            z-index: 1000; /* Pour s'assurer qu'il est au-dessus des autres éléments */
-        }
-        .cookie-banner button {
-            background-color: #f1c40f;
-            border: none;
-            color: black;
-            padding: 10px 20px;
-            margin-left: 15px;
-            cursor: pointer;
-        }
-    </style>
-
-<div class="cookie-banner" id="cookieBanner">
-    Ce site utilise des cookies pour améliorer votre expérience. 
-    <button id="acceptCookies">Accepter</button>
-</div>
-
-<script>
-    window.onload = function() {
-        // Vérifier si le consentement a déjà été donné
-        if (!localStorage.getItem('cookiesAccepted')) {
-            // Afficher la bannière si le consentement n'a pas été donné
-            document.getElementById('cookieBanner').style.display = 'block';
-        }
-
-        // Gérer le clic sur le bouton d'acceptation
-        document.getElementById('acceptCookies').onclick = function() {
-            // Enregistrer le consentement dans localStorage
-            localStorage.setItem('cookiesAccepted', 'true');
-            // Masquer la bannière
-            document.getElementById('cookieBanner').style.display = 'none';
-        };
-    };
-</script>
+    
+</style>
+<nav class="navbar">
+    <div class="navdiv">
+        <div class="logo"><a href="#">Votre Moment Cinema</a></div>
+        <ul>
+            <button><a href="#">Se Connecter</a></button>
+            <button><a href="#">Créer un compte</a></button>
+        </ul>
 
     <style type="text/css">
         *{
@@ -103,37 +42,83 @@
         }
         
     </style>
+
+    <script>
+        window.onload = function() {
+            var age = prompt("Veuillez entrer votre âge :");
+
+            if (age !== null && !isNaN(age)) {
+                age = parseInt(age);
+
+                if (age < 18) {
+                    window.location.href = "https://www.imdb.com";
+                } else {
+                    alert("Bienvenue sur notre site !");
+                }
+            } else {
+                alert("Veuillez entrer un âge valide.");
+                window.location.href = "https://www.imdb.com";
+            }
+        };
+    </script>
     
-    
-    
+
+  
 </head>
 <body>
-    <style type="text/css">
+    <div class="cookie-banner" id="cookieBanner">
+        Ce site utilise des cookies pour améliorer votre expérience. 
+        <button id="acceptCookies">Accepter</button>
+    </div>
+    
+    <script>
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }
+    
+            document.getElementById('acceptCookies').onclick = function() {
+    
+                localStorage.setItem('cookiesAccepted', 'true');
+                document.getElementById('cookieBanner').style.display = 'none';
+            };
+        };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+        .cookie-banner button {
+            background-color: #f1c40f;
+            border: none;
+            color: black;
+            padding: 10px 20px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+    </style>
+     <style type="text/css">
         body{
             background-image: url(cinema.PNG);
             background-size: cover;
             background-position: center;
-            opacity: 1
+            opacity: 1;
         }
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        img {
-            max-width: 100%;
-        }
-    </style>
-    </style>
-<nav class="navbar">
-    <div class="navdiv">
-        <div class="logo"><a href="#">Votre Moment Cinema</a></div>
-        <ul>
-            <button><a href="#">Se Connecter</a></button>
-            <button><a href="#">Créer un compte</a></button>
-        </ul>
+     </style>
+   
+   
         
     </div>
 </nav>
