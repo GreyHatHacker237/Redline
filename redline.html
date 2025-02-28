@@ -4,6 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedLine</title>
+
+    <script>
+        window.onload = function() {
+            // Demander à l'utilisateur son âge
+            var age = prompt("Veuillez entrer votre âge :");
+
+            // Vérifier si l'entrée est un nombre
+            if (age !== null && !isNaN(age)) {
+                age = parseInt(age); // Convertir en nombre entier
+
+                // Vérifier si l'utilisateur a 18 ans ou plus
+                if (age < 18) {
+                    // Rediriger vers IMDB
+                    window.location.href = "https://www.imdb.com";
+                } else {
+                    alert("Bienvenue sur notre site !");
+                }
+            } else {
+                alert("Veuillez entrer un âge valide.");
+                window.location.href = "https://www.imdb.com"; // Rediriger si l'entrée n'est pas valide
+            }
+        };
+    </script>
+</html>
     <style type="text/css">
         *{
             text-decoration: none;
@@ -37,12 +61,12 @@
 <body>
     <style type="text/css">
         body{
-            background-image: url(download.jpg);
+            background-image: url();
             background-size: cover;
             background-position: center;
             opacity: 1
         }
-    </style>"
+    </style>
 <nav class="navbar">
     <div class="navdiv">
         <div class="logo"><a href="#">Votre Moment Cinema</a></div>
