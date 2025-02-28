@@ -68,18 +68,49 @@
                 document.getElementById('cookieBanner').style.display = 'none';
             };
         };
+    
     </script>
     
     <nav class="navbar">
         <div class="navdiv">
             <div class="logo"><a href="#">Votre Moment Cinema</a></div>
             <button id="showLogin">Se Connecter</button>
-            <button><a href="#">Créer un compte</a></button>
+            <button id="showRegister">Créer un compte</button>
         </div>
     </nav>
     
-    <div class="container" id="loginForm">
+    <div class="container" id="registerForm">
         <div class="title">Créer un compte</div>
+        <form action="#">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">Nom</span>
+                    <input type="text" placeholder="Entrez votre nom" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Email</span>
+                    <input type="email" placeholder="Entrez votre email" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Mot de passe</span>
+                    <input type="password" placeholder="Entrez un mot de passe" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">Confirmer le mot de passe</span>
+                    <input type="password" placeholder="Confirmez le mot de passe" required>
+                </div>
+                <div>
+                    <input type="checkbox" id="terms">
+                    <label for="terms">J'accepte les Conditions Générales d'Utilisation</label>
+                </div>
+                <button type="submit">Register</button>
+                <button type="button" id="cancelRegister">Cancel</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="container" id="loginForm">
+        <div class="title">Connexion</div>
         <form action="#">
             <div class="user-details">
                 <div class="input-box">
@@ -95,48 +126,27 @@
                     <label for="stayConnected">Rester connecté</label>
                 </div>
                 <button type="submit">OK</button>
+                <button type="button" id="showRegister">Créer un compte</button>
+                <p><a href="#">Si vous avez oublié votre mot de passe</a></p>
                 <button type="button" id="cancelLogin">Cancel</button>
-                <p><a href="#">Mot de passe oublié ?</a></p>
             </div>
         </form>
-    </style>
-    <div class="container">
-        <div class="title"Créer un compte</div>
-    <form action="#">
-    <div class="user-details">
-    <div class="input-box">
-        <span class="details">Nom</span>
-    <input type="text" placeholder="Entrez votre nom" required>
     </div>
-    <div class="input-box">
-    <span class="details">Email</span>
-    <input type="text" placeholder="Entrez votre email" required>
-    </div>
-    <div class="input-box">
-        <span class="details">Password</span>
-    <input type="text" placeholder="Entrez un mot de passe" required>
-    </div>
-    <div class="input-box">
-    <span class="details">Confirm password</span>
-    <input type="text" placeholder="Entrez le mot de passe" required>
-    </div>
-    <div class="input-box">
-    <span class="details">Conditions Générales d'Utilisation</span>
-    </div>
-    <ul>
-    <button><a href="#">Select</a></button>
-    <button><a href="#">Register</a></button>
-    </ul>
-    </html>
-    
-    </div>
-    
     <div class="cookie-banner" id="cookieBanner">
         Ce site utilise des cookies pour améliorer votre expérience. 
         <button id="acceptCookies">Accepter</button>
     </div>
     
     <script>
+        document.getElementById('showRegister').addEventListener('click', function() {
+            var registerForm = document.getElementById('registerForm');
+            registerForm.style.display = registerForm.style.display === 'none' || registerForm.style.display === '' ? 'block' : 'none';
+        });
+        
+        document.getElementById('cancelRegister').addEventListener('click', function() {
+            document.getElementById('registerForm').style.display = 'none';
+        });
+        
         document.getElementById('showLogin').addEventListener('click', function() {
             var loginForm = document.getElementById('loginForm');
             loginForm.style.display = loginForm.style.display === 'none' || loginForm.style.display === '' ? 'block' : 'none';
@@ -147,3 +157,4 @@
         });
     </script>
 </body>
+</html>
