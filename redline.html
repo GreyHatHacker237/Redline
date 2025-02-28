@@ -79,27 +79,25 @@
     </nav>
     
     <div class="container" id="loginForm">
-        <div class="title">Créer un compte</div>
+        <div class="title">Connexion</div>
         <form action="#">
             <div class="user-details">
                 <div class="input-box">
-                    <span class="details">Nom</span>
-                    <input type="text" placeholder="Entrez votre nom" required>
+                    <span class="details">Identifiant</span>
+                    <input type="text" placeholder="Entrez votre identifiant" required>
                 </div>
                 <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="text" placeholder="Entrez votre email" required>
+                    <span class="details">Mot de passe</span>
+                    <input type="password" placeholder="Entrez votre mot de passe" required>
                 </div>
-                <div class="input-box">
-                    <span class="details">Password</span>
-                    <input type="password" placeholder="Entrez un mot de passe" required>
+                <div>
+                    <input type="checkbox" id="stayConnected">
+                    <label for="stayConnected">Rester connecté</label>
                 </div>
-                <div class="input-box">
-                    <span class="details">Confirm password</span>
-                    <input type="password" placeholder="Confirmez le mot de passe" required>
-                </div>
+                <button type="submit">OK</button>
+                <button type="button" id="cancelLogin">Cancel</button>
+                <p><a href="#">Mot de passe oublié ?</a></p>
             </div>
-            <button type="submit">Register</button>
         </form>
     </div>
     
@@ -112,6 +110,10 @@
         document.getElementById('showLogin').addEventListener('click', function() {
             var loginForm = document.getElementById('loginForm');
             loginForm.style.display = loginForm.style.display === 'none' || loginForm.style.display === '' ? 'block' : 'none';
+        });
+        
+        document.getElementById('cancelLogin').addEventListener('click', function() {
+            document.getElementById('loginForm').style.display = 'none';
         });
     </script>
 </body>
