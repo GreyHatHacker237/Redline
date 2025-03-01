@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedLine</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         * { text-decoration: none; }
         body { 
@@ -15,9 +17,6 @@
             margin: 0;
         }
         .navbar { background:black; font-family: Arial, Helvetica, sans-serif; padding: 15px; }
-        .navdiv { display: flex; align-items: center; justify-content: space-between; }
-        .logo a { font-size: 35px; font-weight: 600; color: white; }
-        button { background-color: white; margin-left: 10px; border-radius: 10px; padding: 10px; width: 120px; cursor: pointer; }
         .container { display: none; background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white; margin-top: 20px; }
         .input-box { margin-bottom: 10px; }
         .input-box input { width: 100%; padding: 8px; margin-top: 5px; }
@@ -68,70 +67,26 @@
                 document.getElementById('cookieBanner').style.display = 'none';
             };
         };
-    
     </script>
     
-    <nav class="navbar">
-        <div class="navdiv">
-            <div class="logo"><a href="#">Votre Moment Cinema</a></div>
-            <button id="showLogin">Se Connecter</button>
-            <button id="showRegister">Créer un compte</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Votre Moment Cinema</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-item"><button id="showLogin" class="btn btn-outline-light">Se Connecter</button></li>
+                    <li class="nav-item"><button id="showRegister" class="btn btn-outline-light">Créer un compte</button></li>
+                </ul>
+            </div>
         </div>
     </nav>
     
-    <div class="container" id="registerForm">
-        <div class="title">Créer un compte</div>
-        <form action="#">
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Nom</span>
-                    <input type="text" placeholder="Entrez votre nom" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Email</span>
-                    <input type="email" placeholder="Entrez votre email" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Mot de passe</span>
-                    <input type="password" placeholder="Entrez un mot de passe" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Confirmer le mot de passe</span>
-                    <input type="password" placeholder="Confirmez le mot de passe" required>
-                </div>
-                <div>
-                    <input type="checkbox" id="terms">
-                    <label for="terms">J'accepte les Conditions Générales d'Utilisation</label>
-                </div>
-                <button type="submit">Register</button>
-                <button type="button" id="cancelRegister">Cancel</button>
-            </div>
-        </form>
-    </div>
-    
-    <div class="container" id="loginForm">
-        <div class="title">Connexion</div>
-        <form action="#">
-            <div class="user-details">
-                <div class="input-box">
-                    <span class="details">Identifiant</span>
-                    <input type="text" placeholder="Entrez votre identifiant" required>
-                </div>
-                <div class="input-box">
-                    <span class="details">Mot de passe</span>
-                    <input type="password" placeholder="Entrez votre mot de passe" required>
-                </div>
-                <div>
-                    <input type="checkbox" id="stayConnected">
-                    <label for="stayConnected">Rester connecté</label>
-                </div>
-                <button type="submit">OK</button>
-                <button type="button" id="showRegister">Créer un compte</button>
-                <p><a href="#">Si vous avez oublié votre mot de passe</a></p>
-                <button type="button" id="cancelLogin">Cancel</button>
-            </div>
-        </form>
-    </div>
     <div class="cookie-banner" id="cookieBanner">
         Ce site utilise des cookies pour améliorer votre expérience. 
         <button id="acceptCookies">Accepter</button>
@@ -139,19 +94,14 @@
     
     <script>
         document.getElementById('showRegister').addEventListener('click', function() {
-            var registerForm = document.getElementById('registerForm');
-            registerForm.style.display = registerForm.style.display === 'none' || registerForm.style.display === '' ? 'block' : 'none';
+            document.getElementById('registerForm').style.display = 'block';
         });
-        
         document.getElementById('cancelRegister').addEventListener('click', function() {
             document.getElementById('registerForm').style.display = 'none';
         });
-        
         document.getElementById('showLogin').addEventListener('click', function() {
-            var loginForm = document.getElementById('loginForm');
-            loginForm.style.display = loginForm.style.display === 'none' || loginForm.style.display === '' ? 'block' : 'none';
+            document.getElementById('loginForm').style.display = 'block';
         });
-        
         document.getElementById('cancelLogin').addEventListener('click', function() {
             document.getElementById('loginForm').style.display = 'none';
         });
