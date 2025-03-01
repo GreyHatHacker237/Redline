@@ -18,9 +18,6 @@
             margin: 0;
         }
         .navbar { background:black; font-family: Arial, Helvetica, sans-serif; padding: 15px; }
-        .container { display: none; background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white; margin-top: 20px; }
-        .input-box { margin-bottom: 10px; }
-        .input-box input { width: 100%; padding: 8px; margin-top: 5px; }
         .cookie-banner {
             position: fixed;
             bottom: 0;
@@ -43,35 +40,16 @@
         }
         .jumbotron {
             width: 100%;
-            height: 300px;
-            background-color: #444;
+            height: 400px;
+            background: url('cinema.png') no-repeat center center;
+            background-size: cover;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .slide-container {
-            position: absolute;
-            width: 300%;
-            display: flex;
-            animation: slide 9s infinite;
-        }
-        .slide {
-            width: 100vw;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            33% { transform: translateX(-100vw); }
-            66% { transform: translateX(-200vw); }
-            100% { transform: translateX(0); }
+            font-size: 2rem;
+            font-weight: bold;
         }
     </style>
     <script>
@@ -93,12 +71,9 @@
 </head>
 <body>
     <div class="jumbotron">
-        <div class="slide-container">
-            <div class="slide" style="background-color: #222;">Bienvenue sur Votre Moment Cinema</div>
-            <div class="slide" style="background-color: #555;">Découvrez les meilleurs films</div>
-            <div class="slide" style="background-color: #777;">Profitez de notre sélection exclusive</div>
-        </div>
+        Bienvenue sur Votre Moment Cinema
     </div>
+    
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
@@ -111,31 +86,79 @@
                     <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><button id="showLogin" class="btn btn-outline-light">Se Connecter</button></li>
-                    <li class="nav-item"><button id="showRegister" class="btn btn-outline-light">Créer un compte</button></li>
+                    <li class="nav-item"><button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#loginModal">Se Connecter</button></li>
+                    <li class="nav-item"><button class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#registerModal">Créer un compte</button></li>
                 </ul>
             </div>
         </div>
     </nav>
-    
-    <div class="cookie-banner" id="cookieBanner">
-        Ce site utilise des cookies pour améliorer votre expérience. 
-        <button id="acceptCookies">Accepter</button>
+
+    <!-- Modal Connexion -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Connexion</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Identifiant</label>
+                            <input type="text" class="form-control" placeholder="Entrez votre identifiant" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" placeholder="Entrez votre mot de passe" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="stayConnected">
+                            <label class="form-check-label" for="stayConnected">Rester connecté</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">OK</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                        <p><a href="#">Si vous avez oublié votre mot de passe</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <script>
-        document.getElementById('showRegister').addEventListener('click', function() {
-            document.getElementById('registerForm').style.display = 'block';
-        });
-        document.getElementById('cancelRegister').addEventListener('click', function() {
-            document.getElementById('registerForm').style.display = 'none';
-        });
-        document.getElementById('showLogin').addEventListener('click', function() {
-            document.getElementById('loginForm').style.display = 'block';
-        });
-        document.getElementById('cancelLogin').addEventListener('click', function() {
-            document.getElementById('loginForm').style.display = 'none';
-        });
-    </script>
+
+    <!-- Modal Inscription -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Créer un compte</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Nom</label>
+                            <input type="text" class="form-control" placeholder="Entrez votre nom" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">E-mail</label>
+                            <input type="email" class="form-control" placeholder="Entrez votre email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" placeholder="Entrez un mot de passe" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Confirmer le mot de passe</label>
+                            <input type="password" class="form-control" placeholder="Confirmez le mot de passe" required>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="terms">
+                            <label class="form-check-label" for="terms">J'accepte les Conditions Générales d'Utilisation</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
