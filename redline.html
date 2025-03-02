@@ -164,5 +164,100 @@
             </div>
         </div>
     </div>
+    <section id="films" class="films-section">
+        <div class="container">
+            <h2 class="text-center">Films</h2>
+            <div class="row">
+                <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+                    <img src="batmanmovie-2017-comedie.jpg" alt="Film 1">
+                    <h4>Film 1</h4>
+                    <p>2023 - Action</p>
+                </div>
+                <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+                    <img src="hostel-2005-thriller.jpg" alt="Film 2">
+                    <h4>Film 2</h4>
+                    <p>2022 - Drame</p>
+                </div>
+                <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+                    <img src="intouchables-2011-comedie.jpg" alt="Film 3">
+                    <h4>Film 3</h4>
+                    <p>2021 - Science-fiction</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="inception-2010-scifi.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="lepatientanglais-1996-dramatique.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="lesdeuxtours-2002-aventure.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="seven-1995-thriller.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="Survivestyle5-2004-comedie.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="shutterisland-2010-thriller.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="starwarsempire-1980-scifi.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+        <div class="col-md-4 film-card" data-bs-toggle="modal" data-bs-target="#filmModal">
+            <img src="zoolander-2001-comedie.jpg" alt="Film 3">
+            <h4>Film 3</h4>
+            <p>2021 - Science-fiction</p>
+        </div>
+    </section>
+
+    <div class="modal fade" id="filmModal" tabindex="-1" aria-labelledby="filmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="filmTitle">Titre du Film</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="filmTrailer" width="100%" height="400px" src="" frameborder="0" allowfullscreen></iframe>
+                    <p id="filmDescription">Description du film...</p>
+                    <p><strong>Réalisateur :</strong> <span id="filmDirector">Nom du réalisateur</span></p>
+                    <p><strong>Année de sortie :</strong> <span id="filmYear">2023</span></p>
+                    <p><strong>Genre :</strong> <span id="filmGenre">Action</span></p>
+                    <p><strong>Acteurs :</strong> <span id="filmActors">Acteur 1, Acteur 2</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.film-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.getElementById('filmTitle').innerText = this.querySelector('h4').innerText;
+                document.getElementById('filmDescription').innerText = "Ceci est une description fictive du film.";
+                document.getElementById('filmDirector').innerText = "Nom du réalisateur";
+                document.getElementById('filmYear').innerText = "2023";
+                document.getElementById('filmGenre').innerText = this.querySelector('p').innerText.split('-')[1].trim();
+                document.getElementById('filmActors').innerText = "Acteur 1, Acteur 2";
+                document.getElementById('filmTrailer').src = "https://www.youtube.com/embed/dQw4w9WgXcQ";
+            });
+        });
+    </script>
 </body>
 </html>
